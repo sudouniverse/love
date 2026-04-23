@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Sumu 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="heart-rain" id="heartRain"></div>
+
+<div class="scene">
+  <div class="ground-glow"></div>
+
+  <!-- Tree SVG -->
+  <div id="treeWrapper">
+    <svg id="tree-svg" viewBox="0 0 320 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- Trunk -->
+      <defs>
+        <radialGradient id="trunkGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#7a3b1e"/>
+          <stop offset="100%" stop-color="#3d1a08"/>
+        </radialGradient>
+        <radialGradient id="leafGrad1" cx="40%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#ff6fa8"/>
+          <stop offset="100%" stop-color="#c2185b"/>
+        </radialGradient>
+        <radialGradient id="leafGrad2" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stop-color="#ff8fb3"/>
+          <stop offset="100%" stop-color="#ad1457"/>
+        </radialGradient>
+        <radialGradient id="leafGrad3" cx="40%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#ffaec9"/>
+          <stop offset="100%" stop-color="#e91e63"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <!-- Ground -->
+      <ellipse cx="160" cy="390" rx="70" ry="8" fill="rgba(180,60,100,0.25)"/>
+
+      <!-- Trunk -->
+      <path d="M148 390 Q142 340 138 290 Q134 240 140 200 Q145 175 160 170 Q175 175 180 200 Q186 240 182 290 Q178 340 172 390 Z"
+            fill="url(#trunkGrad)" opacity="0.95"/>
+      <!-- Trunk details -->
+      <path d="M155 350 Q148 320 145 280" stroke="#3d1a08" stroke-width="1.5" fill="none" opacity="0.5"/>
+      <path d="M165 360 Q172 325 175 285" stroke="#3d1a08" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+      <!-- Branches -->
+      <path d="M155 260 Q120 240 90 220" stroke="#5a2a0e" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M155 280 Q125 300 100 320" stroke="#5a2a0e" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M165 250 Q200 230 230 210" stroke="#5a2a0e" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <path d="M168 275 Q205 290 235 305" stroke="#5a2a0e" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M160 230 Q155 195 150 170" stroke="#5a2a0e" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M140 240 Q105 220 75 235" stroke="#5a2a0e" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M180 240 Q215 215 245 225" stroke="#5a2a0e" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+      <!-- LEAF CLUSTERS (will animate bloom) -->
+      <!-- Top cluster -->
+      <g class="leaf" id="leaf1" style="transition-delay:0.2s">
+        <circle cx="160" cy="100" r="55" fill="url(#leafGrad1)" opacity="0.92" filter="url(#glow)"/>
+        <circle cx="140" cy="115" r="40" fill="url(#leafGrad2)" opacity="0.85"/>
+        <circle cx="180" cy="110" r="42" fill="url(#leafGrad3)" opacity="0.88"/>
+      </g>
+      <!-- Left cluster -->
+      <g class="leaf" id="leaf2" style="transition-delay:0.5s">
+        <circle cx="80" cy="210" r="48" fill="url(#leafGrad2)" opacity="0.9" filter="url(#glow)"/>
+        <circle cx="65" cy="230" r="35" fill="url(#leafGrad1)" opacity="0.82"/>
+        <circle cx="95" cy="235" r="38" fill="url(#leafGrad3)" opacity="0.85"/>
+      </g>
+      <!-- Right cluster -->
+      <g class="leaf" id="leaf3" style="transition-delay:0.8s">
+        <circle cx="240" cy="200" r="50" fill="url(#leafGrad3)" opacity="0.9" filter="url(#glow)"/>
+        <circle cx="225" cy="220" r="36" fill="url(#leafGrad1)" opacity="0.83"/>
+        <circle cx="255" cy="222" r="38" fill="url(#leafGrad2)" opacity="0.86"/>
+      </g>
+      <!-- Lower left -->
+      <g class="leaf" id="leaf4" style="transition-delay:1.1s">
+        <circle cx="95" cy="295" r="42" fill="url(#leafGrad1)" opacity="0.88" filter="url(#glow)"/>
+        <circle cx="78" cy="310" r="30" fill="url(#leafGrad3)" opacity="0.8"/>
+      </g>
+      <!-- Lower right -->
+      <g class="leaf" id="leaf5" style="transition-delay:1.4s">
+        <circle cx="230" cy="285" r="42" fill="url(#leafGrad2)" opacity="0.88" filter="url(#glow)"/>
+        <circle cx="248" cy="302" r="30" fill="url(#leafGrad1)" opacity="0.8"/>
+      </g>
+
+      <!-- Small flowers on tree -->
+      <g class="leaf" id="leaf6" style="transition-delay:1.7s">
+        <circle cx="155" cy="75" r="12" fill="#ffb3cc" opacity="0.95"/>
+        <circle cx="170" cy="85" r="9" fill="#ff80ab" opacity="0.9"/>
+        <circle cx="142" cy="88" r="10" fill="#ff4081" opacity="0.85"/>
+        <circle cx="175" cy="68" r="8" fill="#ffcdd2" opacity="0.9"/>
+        <circle cx="145" cy="66" r="9" fill="#f8bbd0" opacity="0.88"/>
+      </g>
+
+      <!-- Tiny heart decorations -->
+      <g class="leaf" id="leaf7" style="transition-delay:2.0s">
+        <text x="118" y="255" font-size="14" fill="#ff6fa8" opacity="0.9">♥</text>
+        <text x="195" y="248" font-size="12" fill="#ff4081" opacity="0.85">♥</text>
+        <text x="152" y="148" font-size="16" fill="#ff80ab" opacity="0.9">♥</text>
+        <text x="72" y="260" font-size="10" fill="#ffaec9" opacity="0.8">♥</text>
+        <text x="237" y="265" font-size="11" fill="#ff6fa8" opacity="0.8">♥</text>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Message -->
+  <div id="message">
+    <div class="heart-container">
+      <span class="big-heart">💗</span>
+    </div>
+    <div class="sorry-text">sorry sumu</div>
+    <p class="sub-text">হয়তো তোমার চোখে লুকানো গল্পগুলোই আমাকে বারবার টানে 👀</p>
+  </div>
+</div>
+
+<!-- Decorative rings -->
+<div class="ring" style="width:300px;height:300px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:0s;"></div>
+<div class="ring" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:2s;"></div>
+<div class="ring" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:4s;"></div>
+<script src="js.js"></script>
+</body>
+</html>
